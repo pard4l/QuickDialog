@@ -104,6 +104,14 @@ static const int kCellMinimumLabelWidth = 80;
                                          self.contentView.bounds.size.width - kCellMarginDouble,
                                          self.contentView.bounds.size.height- kCellMarginDouble);
 
+        [self.detailTextLabel sizeToFit];
+        self.detailTextLabel.frame = CGRectMake(self.contentView.bounds.size.width -
+                                                kCellMarginDouble -
+                                                self.detailTextLabel.frame.size.width,
+                                                0,
+                                                self.detailTextLabel.frame.size.width,
+                                                self.textLabel.frame.size.height);
+
         [self.contentView addSubview:self.subtitle];
     }
 }
