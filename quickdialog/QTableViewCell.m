@@ -131,6 +131,12 @@ static const int kCellMinimumLabelWidth = 80;
     self.detailTextLabel.numberOfLines = 0;
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
 
+    self.subtitle.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
+    self.subtitle.font = appearance.labelFont;
+    self.subtitle.textAlignment = appearance.labelAlignment;
+    self.subtitle.numberOfLines = 0;
+    self.subtitle.backgroundColor = [UIColor clearColor];
+
     self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
     self.selectedBackgroundView = element.appearance.selectedBackgroundView;
 
