@@ -452,6 +452,13 @@
     withSubtitle.value = @"And Value";
     [s1 addElement:withSubtitle];
 
+    QLabelElement *withMultiLabel = [QLabelElement new];
+    withMultiLabel.title = @"Data";
+    withMultiLabel.subtitle = @"Hora";
+    withMultiLabel.subtitleValue = @"14:30";
+    withMultiLabel.value = @"10/12/2014";
+    [s1 addElement:withMultiLabel];
+
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
     [s2 addElement:badge1];

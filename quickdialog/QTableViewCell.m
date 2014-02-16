@@ -26,6 +26,7 @@ static const int kCellMinimumLabelWidth = 80;
 {
     if (self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string]) {
         self.subtitle = [UILabel new];
+        self.subtitleValue = [UILabel new];
     }
 
     return self;
@@ -65,54 +66,92 @@ static const int kCellMinimumLabelWidth = 80;
                 self.contentView.bounds.size.height- kCellMarginDouble);
     } else {
 
-        if (self.detailTextLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height-kCellMarginDouble);
+        if (self.subtitleValue.text != nil) {
+            // titulo da esquerda
+            self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
+                                              kCellMargin,
+                                              self.textLabel.frame.size.width,
+                                              self.textLabel.frame.size.height);
+             [self.textLabel sizeToFit];
+
+            // valor da esquerda
+            self.detailTextLabel.frame = CGRectMake(self.textLabel.frame.size.width + 20,
+                                              kCellMargin,
+                                              self.detailTextLabel.frame.size.width,
+                                              self.detailTextLabel.frame.size.height);
+            [self.textLabel sizeToFit];
+
+            // titulo da direita
+            [self.subtitleValue sizeToFit];
+            self.subtitleValue.frame = CGRectMake(self.contentView.bounds.size.width -
+                                                    kCellMargin -
+                                                    self.subtitleValue.frame.size.width,
+                                                    kCellMargin,
+                                                    self.subtitleValue.frame.size.width,
+                                                    self.subtitleValue.frame.size.height);
+
+            // valor da direita
+            [self.subtitle sizeToFit];
+            self.subtitle.frame = CGRectMake((self.contentView.bounds.size.width - self.subtitleValue.frame.size.width) - self.subtitle.frame.size.width - 20,
+                                             kCellMargin,
+                                              self.subtitle.frame.size.width,
+                                              self.subtitle.frame.size.height);
+
+            [self.contentView addSubview:self.subtitleValue];
+            [self.contentView addSubview:self.subtitle];
+
+        } else {
+        
+            if (self.detailTextLabel.text != nil){
+                sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height-kCellMarginDouble);
+            }
+
+            CGSize valueSize = CGSizeZero;
+            if (!self.detailTextLabel.text) {
+                valueSize = CGSizeMake(sizeWithMargin.width - kCellMarginDouble - kCellMargin, sizeWithMargin.height);
+            } else if (self.textLabel.text!=nil) {
+                valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
+            }
+
+            self.textLabel.frame = CGRectMake(
+                    self.textLabel.frame.origin.x,
+                    kCellMargin,
+                    valueSize.width,
+                    self.contentView.bounds.size.height- kCellMarginDouble);
+
+            CGFloat detailsWidth = self.contentView.bounds.size.width - kCellMarginDouble;
+            if (valueSize.width>0)
+                detailsWidth = detailsWidth - valueSize.width - kCellMarginDouble;
+
+            self.detailTextLabel.frame = CGRectMake(
+                    self.contentView.bounds.size.width - detailsWidth - kCellMargin,
+                    kCellMargin,
+                    detailsWidth,
+                    self.contentView.bounds.size.height- kCellMarginDouble);
+
+            if (self.subtitle.text != nil) {
+                self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
+                                                  0,
+                                                  self.textLabel.frame.size.width,
+                                                  self.textLabel.frame.size.height);
+
+                self.subtitle.frame = CGRectMake(self.textLabel.frame.origin.x,
+                                                 18,
+                                                 self.contentView.bounds.size.width - kCellMarginDouble,
+                                                 self.contentView.bounds.size.height- kCellMarginDouble);
+
+                [self.detailTextLabel sizeToFit];
+                self.detailTextLabel.frame = CGRectMake(self.contentView.bounds.size.width -
+                                                        kCellMarginDouble -
+                                                        self.detailTextLabel.frame.size.width,
+                                                        0,
+                                                        self.detailTextLabel.frame.size.width,
+                                                        self.textLabel.frame.size.height);
+                
+                [self.contentView addSubview:self.subtitle];
+            }
         }
 
-        CGSize valueSize = CGSizeZero;
-        if (!self.detailTextLabel.text) {
-            valueSize = CGSizeMake(sizeWithMargin.width - kCellMarginDouble - kCellMargin, sizeWithMargin.height);
-        } else if (self.textLabel.text!=nil) {
-            valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
-        }
-
-        self.textLabel.frame = CGRectMake(
-                self.textLabel.frame.origin.x,
-                kCellMargin,
-                valueSize.width,
-                self.contentView.bounds.size.height- kCellMarginDouble);
-
-        CGFloat detailsWidth = self.contentView.bounds.size.width - kCellMarginDouble;
-        if (valueSize.width>0)
-            detailsWidth = detailsWidth - valueSize.width - kCellMarginDouble;
-
-        self.detailTextLabel.frame = CGRectMake(
-                self.contentView.bounds.size.width - detailsWidth - kCellMargin,
-                kCellMargin,
-                detailsWidth,
-                self.contentView.bounds.size.height- kCellMarginDouble);
-    }
-
-    if (self.subtitle.text != nil) {
-        self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
-                                          0,
-                                          self.textLabel.frame.size.width,
-                                          self.textLabel.frame.size.height);
-
-        self.subtitle.frame = CGRectMake(self.textLabel.frame.origin.x,
-                                         18,
-                                         self.contentView.bounds.size.width - kCellMarginDouble,
-                                         self.contentView.bounds.size.height- kCellMarginDouble);
-
-        [self.detailTextLabel sizeToFit];
-        self.detailTextLabel.frame = CGRectMake(self.contentView.bounds.size.width -
-                                                kCellMarginDouble -
-                                                self.detailTextLabel.frame.size.width,
-                                                0,
-                                                self.detailTextLabel.frame.size.width,
-                                                self.textLabel.frame.size.height);
-
-        [self.contentView addSubview:self.subtitle];
     }
 }
 
@@ -136,6 +175,12 @@ static const int kCellMinimumLabelWidth = 80;
     self.subtitle.textAlignment = appearance.labelAlignment;
     self.subtitle.numberOfLines = 0;
     self.subtitle.backgroundColor = [UIColor clearColor];
+
+    self.subtitleValue.textColor = element.enabled ? appearance.valueColorEnabled : appearance.valueColorDisabled;
+    self.subtitleValue.font = appearance.valueFont;
+    self.subtitleValue.textAlignment = appearance.valueAlignment;
+    self.subtitleValue.numberOfLines = 0;
+    self.subtitleValue.backgroundColor = [UIColor clearColor];
 
     self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
     self.selectedBackgroundView = element.appearance.selectedBackgroundView;

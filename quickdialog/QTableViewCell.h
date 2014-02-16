@@ -29,6 +29,7 @@ typedef enum {
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 @property (nonatomic, strong) UILabel *subtitle;
+@property (nonatomic, strong) UILabel *subtitleValue;
 
 - (void)applyAppearanceForElement:(QElement *)element;
 @end
