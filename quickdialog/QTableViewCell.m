@@ -71,35 +71,35 @@ static const int kCellMinimumLabelWidth = 80;
             self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
                                               kCellMargin,
                                               self.textLabel.frame.size.width,
-                                              self.textLabel.frame.size.height);
-             [self.textLabel sizeToFit];
+                                              self.contentView.bounds.size.height- kCellMarginDouble);
+            [self.textLabel sizeToFit];
 
             // valor da esquerda
             self.detailTextLabel.frame = CGRectMake(self.textLabel.frame.size.width + 20,
-                                              kCellMargin,
-                                              self.detailTextLabel.frame.size.width,
-                                              self.detailTextLabel.frame.size.height);
+                                                    kCellMargin,
+                                                    self.detailTextLabel.frame.size.width,
+                                                    self.contentView.bounds.size.height- kCellMarginDouble);
             [self.textLabel sizeToFit];
 
             // titulo da direita
             [self.subtitleValue sizeToFit];
             self.subtitleValue.frame = CGRectMake(self.contentView.bounds.size.width -
-                                                    kCellMargin -
-                                                    self.subtitleValue.frame.size.width,
-                                                    kCellMargin,
-                                                    self.subtitleValue.frame.size.width,
-                                                    self.subtitleValue.frame.size.height);
+                                                  kCellMargin -
+                                                  self.subtitleValue.frame.size.width,
+                                                  kCellMargin,
+                                                  self.subtitleValue.frame.size.width,
+                                                  self.contentView.bounds.size.height- kCellMarginDouble);
 
             // valor da direita
             [self.subtitle sizeToFit];
             self.subtitle.frame = CGRectMake((self.contentView.bounds.size.width - self.subtitleValue.frame.size.width) - self.subtitle.frame.size.width - 20,
                                              kCellMargin,
-                                              self.subtitle.frame.size.width,
-                                              self.subtitle.frame.size.height);
+                                             self.subtitle.frame.size.width,
+                                             self.contentView.bounds.size.height- kCellMarginDouble);
 
             [self.contentView addSubview:self.subtitleValue];
             [self.contentView addSubview:self.subtitle];
-
+            
         } else {
         
             if (self.detailTextLabel.text != nil){
