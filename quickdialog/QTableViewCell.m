@@ -68,18 +68,19 @@ static const int kCellMinimumLabelWidth = 80;
 
         if (self.subtitleValue.text != nil) {
             // titulo da esquerda
+            [self.textLabel sizeToFit];
             self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
                                               kCellMargin,
                                               self.textLabel.frame.size.width,
                                               self.contentView.bounds.size.height- kCellMarginDouble);
-            [self.textLabel sizeToFit];
+
 
             // valor da esquerda
+            [self.detailTextLabel sizeToFit];
             self.detailTextLabel.frame = CGRectMake(self.textLabel.frame.size.width + 20,
                                                     kCellMargin,
                                                     self.detailTextLabel.frame.size.width,
                                                     self.contentView.bounds.size.height- kCellMarginDouble);
-            [self.textLabel sizeToFit];
 
             // titulo da direita
             [self.subtitleValue sizeToFit];
