@@ -35,6 +35,7 @@
 
 @property(nonatomic, strong) QTextField *textField;
 @property (nonatomic, strong) NSStringMask *mask;
+@property (nonatomic, strong) NSString *card;
 
 - (void)updatePrevNextStatus;
 

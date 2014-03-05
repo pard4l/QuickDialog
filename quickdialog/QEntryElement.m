@@ -26,6 +26,7 @@
 @synthesize suffix = _suffix;
 @synthesize hiddenToolbar = _hiddenToolbar;
 @synthesize mask = _mask;
+@synthesize card = _card;
 @synthesize onValueChanged = _onValueChanged;
 
 @synthesize delegate = _delegate;

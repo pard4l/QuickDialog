@@ -35,6 +35,9 @@
 @property (nonatomic, strong) NSString *prefix;
 @property (nonatomic, strong) NSString *suffix;
 @property (nonatomic, strong) NSString *mask;
+
+@property (nonatomic, strong) NSString *card;
+
 @property (atomic, assign) int maxLength;
 @property (assign) BOOL hiddenToolbar;
 
