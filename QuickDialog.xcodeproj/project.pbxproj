@@ -55,6 +55,8 @@
 		5C50EF790D3A46FEDCDF0FA0 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E5B0F3DD0967B8186785 /* QMapElement.m */; };
 		5C50EFADB34DF61735763BCF /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */; };
 		5C50EFD5861E1FE78AD17F06 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E93B5273C6D9050767C6 /* QWebElement.m */; };
+		5D97927518C77F960003C77C /* UIColor+MCUIColorsUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D97927318C77F960003C77C /* UIColor+MCUIColorsUtils.h */; };
+		5D97927618C77F960003C77C /* UIColor+MCUIColorsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97927418C77F960003C77C /* UIColor+MCUIColorsUtils.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -225,6 +227,8 @@
 		5C50EED1BB826D7F7B08055A /* QPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerElement.h; sourceTree = "<group>"; };
 		5C50EF9F76D029609CD376E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QColorPickerElement.h; sourceTree = "<group>"; };
 		5C50EFD565900926223F50D4 /* QMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapViewController.m; sourceTree = "<group>"; };
+		5D97927318C77F960003C77C /* UIColor+MCUIColorsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MCUIColorsUtils.h"; sourceTree = "<group>"; };
+		5D97927418C77F960003C77C /* UIColor+MCUIColorsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MCUIColorsUtils.m"; sourceTree = "<group>"; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -430,6 +434,8 @@
 		5C50EF103443BF3C70224C57 /* extras */ = {
 			isa = PBXGroup;
 			children = (
+				5D97927318C77F960003C77C /* UIColor+MCUIColorsUtils.h */,
+				5D97927418C77F960003C77C /* UIColor+MCUIColorsUtils.m */,
 				5C50E4957330C22B16CE6938 /* QWebViewController.m */,
 				5C50E5DF83EB5A046AD7FA16 /* QMapViewController.h */,
 				5C50E02C8F4B4A90F96E33D6 /* QMapAnnotation.h */,
@@ -769,6 +775,7 @@
 				194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */,
 				D87B4FCB14F16197006DA833 /* QAutoEntryElement.h in Headers */,
 				D87B4FCD14F16197006DA833 /* QAutoEntryTableViewCell.h in Headers */,
+				5D97927518C77F960003C77C /* UIColor+MCUIColorsUtils.h in Headers */,
 				D8B39450151394E1008ECB34 /* QEmptyListElement.h in Headers */,
 				D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */,
 				D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */,
@@ -897,6 +904,7 @@
 				2C5423A5145ADF2B0026A152 /* QBadgeElement.m in Sources */,
 				2C5423A7145ADF2B0026A152 /* QBadgeTableCell.m in Sources */,
 				2C5423A9145ADF2B0026A152 /* QBooleanElement.m in Sources */,
+				5D97927618C77F960003C77C /* UIColor+MCUIColorsUtils.m in Sources */,
 				2C5423AB145ADF2B0026A152 /* QButtonElement.m in Sources */,
 				D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */,
 				2C5423AD145ADF2B0026A152 /* QDateEntryTableViewCell.m in Sources */,
