@@ -24,7 +24,7 @@
     if (self) {
         self.presentationMode = QPresentationModePopover;
     }
-
+    
     return self;
 }
 
@@ -43,7 +43,7 @@
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = NO;
     cell.textField.textAlignment = self.appearance.labelAlignment;
-
+    
     return cell;
 }
 
@@ -62,8 +62,8 @@
     textController.textView.secureTextEntry = self.secureTextEntry;
     textController.textView.autocapitalizationType = self.autocapitalizationType;
     textController.textView.returnKeyType = self.returnKeyType;
-    textController.textView.editable = self.enabled;
-
+    textController.textView.editable = NO; //self.enabled;
+    
     __weak QMultilineElement *weakSelf = self;
 	__weak QMultilineTextViewController *weakTextController = textController;
     textController.willDisappearCallback = ^ {
