@@ -212,16 +212,20 @@
     
     if (self.card != nil){
         
-        if (range.location > 0 && (
-                                   range.location == 4 ||
-                                   range.location == 9 ||
-                                   range.location == 14 ||
-                                   range.location == 19)){
+        if ([string isEqualToString:@""]){
             
-            NSString *stringR = [textField.text stringByAppendingString:@"-"];
-            textField.text = stringR;
-            
+        } else {
+            if (range.location > 0 && (
+                                       range.location == 4 ||
+                                       range.location == 9 ||
+                                       range.location == 14 ||
+                                       range.location == 19)){
+                
+                NSString *stringR = [textField.text stringByAppendingString:@"-"];
+                textField.text = stringR;
+            }
         }
+
         
     }
     
