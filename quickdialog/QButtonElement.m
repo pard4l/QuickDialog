@@ -32,6 +32,15 @@
     return self;
 }
 
+- (QButtonElement *)initWithTitle:(NSString *)title andImage:(UIImage *)image {
+    self = [super initWithTitle:title Value:nil];
+    if (self) {
+        self.enabled = YES;
+        self.image = image;
+    }
+    return self;
+}
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
     if (cell == nil){

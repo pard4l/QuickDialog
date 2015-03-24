@@ -24,4 +24,6 @@
 
 - (QButtonElement *)initWithTitle:(NSString *)title;
 
+- (QButtonElement *)initWithTitle:(NSString *)title andImage:(UIImage *)image;
+
 @end
