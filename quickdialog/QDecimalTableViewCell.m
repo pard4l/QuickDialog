@@ -77,9 +77,16 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
     BOOL shouldChange = YES;
+    NSUInteger newLength = [textField.text length] + [replacement length] - range.length;
+    if (newLength >= 11)
+    {
+        return NO;
+    }
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
         shouldChange = [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:_entryElement andCell:self];
+    
+   
     
     if( shouldChange ) {
         NSString *newValue = [_textField.text stringByReplacingCharactersInRange:range withString:replacement];
@@ -87,6 +94,10 @@
         [self updateTextFieldFromElement];
         [_entryElement handleEditingChanged:self];
     }
+    
+    
+    
+    
     return NO;
 }
 

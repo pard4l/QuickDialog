@@ -43,6 +43,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
+    
     if (cell == nil){
         cell= [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
     }
@@ -51,6 +52,7 @@
     cell.textLabel.textAlignment = self.appearance.buttonAlignment;
     cell.textLabel.font = self.appearance.labelFont;
     cell.textLabel.textColor = self.enabled ? self.appearance.actionColorEnabled : self.appearance.actionColorDisabled;
+    cell.imageView.image = self.image;
     return cell;
 }
 

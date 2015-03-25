@@ -51,6 +51,7 @@
 
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+
     QTableViewCell *cell = (QTableViewCell *) [super getCellForTableView:tableView controller:controller];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;

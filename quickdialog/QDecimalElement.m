@@ -55,6 +55,7 @@
     if (self) {
         _numberValue = @0;
         self.keyboardType = UIKeyboardTypeDecimalPad;
+
     }
 
     return self;
